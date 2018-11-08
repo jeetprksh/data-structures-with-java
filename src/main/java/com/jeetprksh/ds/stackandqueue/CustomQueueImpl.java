@@ -5,26 +5,28 @@ import java.util.Optional;
 @SuppressWarnings("unchecked")
 public class CustomQueueImpl<T> implements CustomQueue<T> {
 
-    private Node first;
+    private Node head;
+    private Node tail;
 
     @Override
     public void enqueue(T o) {
-        if (first == null) {
-            first = new Node(o, null);
+        if (head == null && tail == null) {
+            head = new Node(o, null);
+            tail = head;
         } else {
-            Node lastNode = getLast();
             Node newNode = new Node(o, null);
-            lastNode.setNext(newNode);
+            tail.setNext(newNode);
+            tail = newNode;
         }
     }
 
     @Override
     public Optional<T> dequeue() {
-        if (first == null) {
+        if (head == null) {
             return Optional.empty();
         } else {
-            T data = (T) first.getData();
-            first = first.getNext();
+            T data = (T) head.getData();
+            head = head.getNext();
             return Optional.of(data);
         }
     }
@@ -32,7 +34,7 @@ public class CustomQueueImpl<T> implements CustomQueue<T> {
     @Override
     public void printQueue() {
         if (!isEmpty()){
-            Node node = first;
+            Node node = head;
             while (node.getNext() != null) {
                 System.out.print(node.getData() + " ");
                 node = node.getNext();
@@ -43,24 +45,11 @@ public class CustomQueueImpl<T> implements CustomQueue<T> {
 
     @Override
     public boolean isEmpty() {
-        return first == null;
+        return head == null;
     }
 
     @Override
     public Optional<T> peek() {
-        if (isEmpty()) {
-            return Optional.empty();
-        } else {
-            T data = (T) first.getData();
-            return  Optional.of(data);
-        }
-    }
-
-    private Node getLast() {
-        Node node = first;
-        while (node.getNext() != null) {
-            node = node.getNext();
-        }
-        return node;
+        return isEmpty() ? Optional.empty() : Optional.of((T) head.getData());
     }
 }
