@@ -6,6 +6,10 @@ public class Node {
     private Node right;
     private int data;
 
+    Node(int data) {
+        this(null, null, data);
+    }
+
     public Node(Node left, Node right, int data) {
         this.left = left;
         this.right = right;
