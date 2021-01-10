@@ -1,5 +1,5 @@
 package com.jeetprksh.ds.balancedparentheses;
 
-public interface BalancedParentheses {
+interface BalancedParentheses {
     public boolean isBalanced();
 }
