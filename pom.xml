@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.jeetprksh.ds</groupId>
   <artifactId>data-structures-with-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -20,7 +19,6 @@
   </build>
 
   <packaging>jar</packaging>
-
   <name>data-structures-with-java</name>
   <url>http://maven.apache.org</url>
 
@@ -29,13 +27,12 @@
   </properties>
 
   <dependencies>
-
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
     </dependency>
-
   </dependencies>
 
 </project>

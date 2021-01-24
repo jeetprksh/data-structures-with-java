@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 
 public class QueueWithStacksImpl<T> implements QueueWithStacks<T> {
 
-    private Logger logger = Logger.getLogger(QueueWithStacksImpl.class.getName());
+    private final Logger logger = Logger.getLogger(QueueWithStacksImpl.class.getName());
 
-    private Stack<T> newOnTop = new Stack<>();
-    private Stack<T> oldOnTop = new Stack<>();
+    private final Stack<T> newOnTop = new Stack<>();
+    private final Stack<T> oldOnTop = new Stack<>();
 
     @Override
     public void enqueue(T o) {
@@ -30,7 +30,7 @@ public class QueueWithStacksImpl<T> implements QueueWithStacks<T> {
     @Override
     public List<T> getQueue() {
         List<T> newList = new ArrayList<>(newOnTop);
-        List oldList = new ArrayList<>(oldOnTop);
+        List<T> oldList = new ArrayList<>(oldOnTop);
         Collections.reverse(oldList);
         oldList.addAll(newList);
         return oldList;
