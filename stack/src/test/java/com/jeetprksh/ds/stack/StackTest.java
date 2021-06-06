@@ -1,14 +1,12 @@
-package com.jeetprksh.ds.stackandqueue;
+package com.jeetprksh.ds.stack;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CustomStackTest {
+class StackTest {
 
   @Test
   public void test() {
-    CustomStack<Integer> customStack = new CustomStackImpl<>();
+    Stack<Integer> customStack = new Stack<>();
 
     customStack.push(1);
     customStack.push(2);
