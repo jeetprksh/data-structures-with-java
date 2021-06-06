@@ -1,12 +1,13 @@
-package com.jeetprksh.ds.queuewithstacks;
+package com.jeetprksh.ds.stack.queuewithstack;
 
+import com.jeetprksh.ds.stack.queuewithstacks.QueueWithStacks;
 import org.junit.jupiter.api.Test;
 
 class QueueWithStacksTest {
 
   @Test
   public void test() {
-    QueueWithStacks<Integer> queueWithStacks = new QueueWithStacksImpl<>();
+    QueueWithStacks<Integer> queueWithStacks = new QueueWithStacks<>();
 
     queueWithStacks.enqueue(1);
     queueWithStacks.enqueue(2);
