@@ -5,20 +5,43 @@ import org.junit.jupiter.api.Test;
 class LinkedListTest {
 
   @Test
-  public void test() {
+  public void addLastTest() {
     LinkedList<Integer> list = new LinkedList<>();
+    list.addLast(1);
+    list.addLast(4);
+    list.print();
+  }
 
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(4);
+  @Test
+  public void deleteTest() {
+    LinkedList<Integer> list = new LinkedList<>();
+    list.addLast(1);
+    list.addLast(2);
+    list.addLast(3);
+    list.addLast(4);
     list.print();
-    list.prepend(5);
-    list.prepend(6);
+    list.delete(3);
     list.print();
-    list.delete(1);
+  }
+
+  @Test
+  public void addFirstTest() {
+    LinkedList<Integer> list = new LinkedList<>();
+    list.addLast(1);
+    list.addFirst(5);
     list.print();
-    list.delete(6);
+  }
+
+  @Test
+  public void addAtTest() {
+    LinkedList<Integer> list = new LinkedList<>();
+    list.addLast(1);
+    list.addLast(5);
+    list.addLast(6);
+    list.addLast(2);
+    list.addLast(7);
+    list.print();
+    list.addAt(8, 2);
     list.print();
   }
 

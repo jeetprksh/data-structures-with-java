@@ -2,22 +2,12 @@ package com.jeetprksh.ds.linkedlist;
 
 public class Node<T> {
 
-  private Node<T> previous;
   private Node<T> next;
   private T data;
 
-  public Node(Node<T> previous, Node<T> next, T data) {
-    this.previous = previous;
+  public Node(Node<T> next, T data) {
     this.next = next;
     this.data = data;
-  }
-
-  public Node<T> getPrevious() {
-    return previous;
-  }
-
-  public void setPrevious(Node<T> previous) {
-    this.previous = previous;
   }
 
   public Node<T> getNext() {

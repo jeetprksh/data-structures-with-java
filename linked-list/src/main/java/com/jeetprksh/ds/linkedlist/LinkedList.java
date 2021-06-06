@@ -4,42 +4,43 @@ public class LinkedList<T> {
 
   private Node<T> head;
 
-  public void append(T data) {
+  public void addLast(T data) {
     if (head == null) {
-      head = new Node<>(null, null, data);
+      head = new Node<>(null, data);
     } else {
       Node<T> last = getLast();
-      last.setNext(new Node<>(last, null, data));
+      last.setNext(new Node<>(null, data));
     }
   }
 
-  public void prepend(T data) {
+  public void addFirst(T data) {
     if (head == null) {
-      head = new Node<>(null, null, data);
+      head = new Node<>(null, data);
     } else {
       Node<T> temp = head;
-      head = new Node<>(null, temp, data);
-      temp.setPrevious(head);
+      head = new Node<>(temp, data);
     }
   }
 
-  public void add(T data, int index) {
-
+  public void addAt(T data, int index) {
+    Node<T> currentNode = head;
+    for (int i = 0; i < index - 1; i++) {
+      currentNode = currentNode.getNext();
+    }
+    Node<T> node = new Node<>(currentNode.getNext(), data);
+    currentNode.setNext(node);
   }
 
   public void delete(T data) {
     if (head.getData().equals(data)) {
       Node<T> temp = head;
       head = head.getNext();
-      head.setPrevious(null);
       temp.setNext(null);
     } else {
       Node<T> currentNode = head;
       while(currentNode.getNext() != null) {
         if (currentNode.getNext().getData().equals(data)) {
-          currentNode.getNext().setPrevious(null);
           currentNode.setNext(currentNode.getNext().getNext());
-          currentNode.setPrevious(currentNode);
         }
         currentNode = currentNode.getNext();
       }
