@@ -23,6 +23,7 @@
     <module>linked-list</module>
     <module>queue</module>
     <module>stack</module>
+    <module>binary-search-tree</module>
   </modules>
 
   <packaging>pom</packaging>

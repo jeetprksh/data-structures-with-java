@@ -1,4 +1,4 @@
-package com.jeetprksh.ds.tree;
+package com.jeetprksh.ds.bst;
 
 import org.junit.jupiter.api.Test;
 
