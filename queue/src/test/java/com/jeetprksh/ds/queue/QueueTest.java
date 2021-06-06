@@ -1,14 +1,12 @@
-package com.jeetprksh.ds.stackandqueue;
+package com.jeetprksh.ds.queue;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CustomQueueTest {
+class QueueTest {
 
   @Test
   public void test() {
-    CustomQueue<Integer> queue = new CustomQueueImpl<>();
+    Queue<Integer> queue = new Queue<>();
 
     queue.enqueue(1);
     queue.enqueue(2);
