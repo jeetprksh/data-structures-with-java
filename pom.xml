@@ -20,6 +20,7 @@
 
   <modules>
     <module>arrays</module>
+    <module>linked-list</module>
   </modules>
 
   <packaging>pom</packaging>

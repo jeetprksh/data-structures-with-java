@@ -6,7 +6,7 @@ class CustomLinkedListTest {
 
   @Test
   public void test() {
-    CustomLinkedList<Integer> list = new CustomLinkedListImpl<>();
+    LinkedList<Integer> list = new LinkedList<>();
 
     list.append(1);
     list.append(2);
