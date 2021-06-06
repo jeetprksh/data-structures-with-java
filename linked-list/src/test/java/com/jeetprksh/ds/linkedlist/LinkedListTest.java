@@ -2,7 +2,7 @@ package com.jeetprksh.ds.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-class CustomLinkedListTest {
+class LinkedListTest {
 
   @Test
   public void test() {
@@ -12,14 +12,14 @@ class CustomLinkedListTest {
     list.append(2);
     list.append(3);
     list.append(4);
-    list.printList();
+    list.print();
     list.prepend(5);
     list.prepend(6);
-    list.printList();
+    list.print();
     list.delete(1);
-    list.printList();
+    list.print();
     list.delete(6);
-    list.printList();
+    list.print();
   }
 
 }

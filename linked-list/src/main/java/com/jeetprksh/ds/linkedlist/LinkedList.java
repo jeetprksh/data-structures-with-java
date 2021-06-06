@@ -6,19 +6,19 @@ public class LinkedList<T> {
 
   public void append(T data) {
     if (head == null) {
-      head = new Node(null, null, data);
+      head = new Node<>(null, null, data);
     } else {
-      Node last = getLast();
-      last.setNext(new Node(last, null, data));
+      Node<T> last = getLast();
+      last.setNext(new Node<>(last, null, data));
     }
   }
 
   public void prepend(T data) {
     if (head == null) {
-      head = new Node(null, null, data);
+      head = new Node<>(null, null, data);
     } else {
-      Node temp = head;
-      head = new Node(null, temp, data);
+      Node<T> temp = head;
+      head = new Node<>(null, temp, data);
       temp.setPrevious(head);
     }
   }
@@ -29,26 +29,25 @@ public class LinkedList<T> {
 
   public void delete(T data) {
     if (head.getData().equals(data)) {
-      Node temp = head;
+      Node<T> temp = head;
       head = head.getNext();
       head.setPrevious(null);
       temp.setNext(null);
     } else {
-      Node currentNode = head;
+      Node<T> currentNode = head;
       while(currentNode.getNext() != null) {
         if (currentNode.getNext().getData().equals(data)) {
-          Node temp = currentNode;
           currentNode.getNext().setPrevious(null);
           currentNode.setNext(currentNode.getNext().getNext());
-          currentNode.setPrevious(temp);
+          currentNode.setPrevious(currentNode);
         }
         currentNode = currentNode.getNext();
       }
     }
   }
 
-  public void printList() {
-    Node currentNode = head;
+  public void print() {
+    Node<T> currentNode = head;
     while (currentNode.getNext() != null) {
       System.out.print(currentNode.getData() + " ");
       currentNode = currentNode.getNext();
@@ -56,8 +55,8 @@ public class LinkedList<T> {
     System.out.println(currentNode.getData());
   }
 
-  private Node getLast() {
-    Node currentNode = head;
+  private Node<T> getLast() {
+    Node<T> currentNode = head;
     while (currentNode.getNext() != null) {
       currentNode = currentNode.getNext();
     }
