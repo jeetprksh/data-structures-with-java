@@ -56,6 +56,24 @@ public class LinkedList<T> {
     System.out.println(currentNode.getData());
   }
 
+  public int indexOf(T data) {
+    Node<T> currentNode = head;
+    int index = 0;
+    do {
+      if (currentNode.getData().equals(data)) {
+        break;
+      } else {
+        currentNode = currentNode.getNext();
+        index++;
+      }
+    } while (currentNode.getNext() != null);
+    return index;
+  }
+
+  // contains
+  // removeFirst
+  // removeLast
+
   private Node<T> getLast() {
     Node<T> currentNode = head;
     while (currentNode.getNext() != null) {

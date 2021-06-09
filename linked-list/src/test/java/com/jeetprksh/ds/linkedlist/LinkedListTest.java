@@ -1,5 +1,6 @@
 package com.jeetprksh.ds.linkedlist;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class LinkedListTest {
@@ -41,8 +42,19 @@ class LinkedListTest {
     list.addLast(2);
     list.addLast(7);
     list.print();
-    list.addAt(8, 2);
+    list.addAt(8, 1);
     list.print();
+  }
+
+  @Test
+  public void indexOfTest() {
+    LinkedList<Integer> list = new LinkedList<>();
+    list.addLast(1);
+    list.addLast(5);
+    list.addLast(6);
+    list.addLast(2);
+    list.addLast(7);
+    Assertions.assertEquals(list.indexOf(1), 0);
   }
 
 }
