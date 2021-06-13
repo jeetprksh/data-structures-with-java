@@ -1,5 +1,7 @@
 package com.jeetprksh.ds.linkedlist;
 
+import java.util.Objects;
+
 public class LinkedList<T> {
 
   private Node<T> head;
@@ -32,6 +34,10 @@ public class LinkedList<T> {
   }
 
   public void delete(T data) {
+    if (head == null) {
+      return;
+    }
+
     if (head.getData().equals(data)) {
       Node<T> temp = head;
       head = head.getNext();
@@ -49,30 +55,66 @@ public class LinkedList<T> {
 
   public void print() {
     Node<T> currentNode = head;
-    while (currentNode.getNext() != null) {
+    while (currentNode != null) {
       System.out.print(currentNode.getData() + " ");
       currentNode = currentNode.getNext();
     }
-    System.out.println(currentNode.getData());
+    System.out.println();
   }
 
   public int indexOf(T data) {
     Node<T> currentNode = head;
     int index = 0;
-    do {
+    while (currentNode != null) {
       if (currentNode.getData().equals(data)) {
-        break;
-      } else {
-        currentNode = currentNode.getNext();
-        index++;
+        return index;
       }
-    } while (currentNode.getNext() != null);
-    return index;
+      index++;
+      currentNode = currentNode.getNext();
+    }
+    return -1;
   }
 
-  // contains
-  // removeFirst
-  // removeLast
+  public boolean contains(T data) {
+    return indexOf(data) > -1;
+  }
+
+  public void removeFirst() {
+    if (!Objects.isNull(head)) {
+      Node<T> temp = head;
+      head = head.getNext();
+      temp.setNext(null);
+    }
+  }
+
+  public void removeLast() {
+    if (head == null) {
+      return;
+    }
+
+    if (head.getNext() == null) {
+      head = null;
+      return;
+    }
+
+    Node<T> secondLastNode = head;
+    Node<T> lastNode = head.getNext();
+    while (lastNode.getNext() != null) {
+      lastNode = lastNode.getNext();
+      secondLastNode = secondLastNode.getNext();
+    }
+    secondLastNode.setNext(null);
+  }
+
+  public int size() {
+    Node<T> currentNode = head;
+    int size = 0;
+    while (currentNode != null) {
+      size++;
+      currentNode = currentNode.getNext();
+    }
+    return size;
+  }
 
   private Node<T> getLast() {
     Node<T> currentNode = head;
